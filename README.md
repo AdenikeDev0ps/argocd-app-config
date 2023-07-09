@@ -12,3 +12,8 @@ kubectl port-forward svc/argocd-server 8080:443 -n argocd
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode && echo
 
 # you can change and delete init password
+
+kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
+echo RGdiQXA1YWJadlE0bzZFZQ== | base64 --decode
+kubectl port-forward svc/my-flask-service 5000:5000
+
